@@ -14,7 +14,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active">Dashboard v1</li>
                     </ol>
                 </div><!-- /.col -->
@@ -70,12 +70,12 @@
                                                 <span class="js-lists-values-jabatan">{{$karyawan->general_riwayat_jabatan}}</span>
                                             </td>
                                             <td style="width: 10px;" align="center" >
-                                                <a href="">
+                                                <a href="{{ route('admin.employe.edit', ['general_karyawan_id' => $karyawan->general_karyawan_id]) }}">
                                                 <span class="icon">
                                                     <i class="fas fa-pencil-alt"></i> <!-- Icon pensil (pencil) -->
                                                 </span>
                                                 </a>
-                                                <a href="">
+                                                <a href="{{ route('admin.employe.destroy', ['general_karyawan_id' => $karyawan->general_karyawan_id]) }}">
                                                     <span class="icon">
                                                         <i class="fas fa-trash-alt"></i> <!-- Icon tong sampah (trash) -->
                                                     </span>

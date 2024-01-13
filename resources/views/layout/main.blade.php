@@ -313,10 +313,95 @@
                             </p>
                             </a>
                             <ul class="nav nav-treeview">
-  
+                            <li class="nav-item">
+                                <a href="{{ route('admin.kehadiran_hari_ini') }}" class="nav-link">
+                                <i class="far fa-edit nav-icon"></i>
+                                <p>Kehadiran Hari Ini</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.kehadiran') }}" class="nav-link">
+                                <i class="far fa-edit nav-icon"></i>
+                                <p>Kehadiran</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('admin.cuti_izin') }}" class="nav-link">
+                                <i class="far fa-edit nav-icon"></i>
+                                <p>Cuti/Izin</p>
+                                </a>
+                            </li>
                             </ul>
                         </li>
-                        <!--  -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-history"></i>
+                            <p>
+                                Overtime
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                <i class="far fa-edit nav-icon"></i>
+                                <p>Jumlah Harga Lembur</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                <i class="far fa-edit nav-icon"></i>
+                                <p>Data Lembur</p>
+                                </a>
+                            </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-balance-scale"></i>
+                            <p>
+                                Compensation & Benefits
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Tunjangan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../index3.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Asuransi</p>
+                                </a>
+                            </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-edit"></i>
+                            <p>
+                                Company Remuneration
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Insentif</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../index3.html" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Bonus</p>
+                                </a>
+                            </li>
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-signal"></i>
@@ -355,8 +440,8 @@
         @yield('importExel')
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>HRBP</strong>
-            Jakarta
+            <strong>Copyright &copy; 2024 <a>BazCorp</a>.</strong>
+            All rights reserved.
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0
             </div>

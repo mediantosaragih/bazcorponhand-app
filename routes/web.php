@@ -12,6 +12,7 @@ use App\Http\Controllers\RosterController;
 use App\Http\Controllers\LemburController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AttendanceController;
 
 
 /*
@@ -51,17 +52,20 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     // Route::get('/assets', [HomeController::class, 'assets'])->name('assets');
     Route::get('/employe/create', [EmployeController::class, 'create'])->name('employe.create');
     Route::post('employe/store', [EmployeController::class, 'store'])->name('employe.store');
-    Route::get('/employee/{id}/edit', [EmployeController::class, 'edit'])->name('employe.edit');
-    Route::put('/employee/{id}/update', [EmployeController::class, 'update'])->name('employe.update');
-    Route::delete('/employee/{id}/delete', [EmployeController::class, 'destroy'])->name('employe.destroy');
+    Route::get('/employee/{general_karyawan_id}/edit', [EmployeController::class, 'edit'])->name('employe.edit');
+    // Route::get('/employee/edit', function () {
+    //     return view('employe/edit');
+    // })->name('employe.edits');
+    Route::put('/employee/{general_karyawan_id}/update', [EmployeController::class, 'update'])->name('employe.update');
+    Route::get('/employee/{general_karyawan_id}/delete', [EmployeController::class, 'destroy'])->name('employe.destroy');
 
      //untuk divisi    
      Route::get('/divisi', [DivisiController::class, 'index'])->name('divisi');
      Route::get('/divisi/create', [DivisiController::class, 'create'])->name('divisi.create');
     Route::post('divisi/store', [DivisiController::class, 'store'])->name('divisi.store');
-     Route::get('/divisie/{id}/edit', [DivisiController::class, 'edit'])->name('divisi.edit');
-     Route::put('/divisie/{id}/update', [DivisiController::class, 'update'])->name('divisi.update');
-     Route::delete('/divisie/{id}/delete', [DivisiController::class, 'destroy'])->name('divisi.destroy');
+     Route::get('/divisie/{divisi_id}/edit', [DivisiController::class, 'edit'])->name('divisi.edit');
+     Route::put('/divisie/{divisi_id}/update', [DivisiController::class, 'update'])->name('divisi.update');
+     Route::get('/divisie/{divisi_id}/delete', [DivisiController::class, 'destroy'])->name('divisi.destroy');
 
     //untuk gaji    
     Route::get('/gaji', [GajiController::class, 'index'])->name('gaji');
@@ -95,12 +99,47 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
 
     //untuk cuti    
     Route::get('/cuti', [CutiController::class, 'index'])->name('cuti');
+    Route::get('/cuti', function () {
+        return view('cuti/cuti');
+    })->name('cuti');
     Route::get('/cuti/create', [CutiController::class, 'create'])->name('cuti.create');
     Route::post('cuti/store', [CutiController::class, 'store'])->name('cuti.store');
     Route::get('/cuti/{id}/edit', [CutiController::class, 'edit'])->name('cuti.edit');
     Route::put('/cuti/{id}/update', [CutiController::class, 'update'])->name('cuti.update');
     Route::delete('/cuti/{id}/delete', [CutiController::class, 'destroy'])->name('cuti.destroy');
+    
+    //untuk kehadiran_hari_ini    
+    // Route::get('/kehadiran_hari_ini', [AttendanceController::class, 'index'])->name('kehadiran_hari_ini');
+    Route::get('/kehadiran_hari_ini', function () {
+        return view('attendance/kehadiran_hari_ini');
+    })->name('kehadiran_hari_ini');
+    Route::get('/kehadiran_hari_ini/create', [AttendanceController::class, 'create'])->name('kehadiran_hari_ini.create');
+    Route::post('kehadiran_hari_ini/store', [AttendanceController::class, 'store'])->name('kehadiran_hari_ini.store');
+    Route::get('/kehadiran_hari_ini/{id}/edit', [AttendanceController::class, 'edit'])->name('kehadiran_hari_ini.edit');
+    Route::put('/kehadiran_hari_ini/{id}/update', [AttendanceController::class, 'update'])->name('kehadiran_hari_ini.update');
+    Route::delete('/kehadiran_hari_ini/{id}/delete', [AttendanceController::class, 'destroy'])->name('kehadiran_hari_ini.destroy');
+    
+    //untuk kehadiran    
+    // Route::get('/kehadiran', [AttendanceController::class, 'index'])->name('kehadiran');
+    Route::get('/kehadiran', function () {
+        return view('attendance/kehadiran');
+    })->name('kehadiran');
+    Route::get('/kehadiran/create', [AttendanceController::class, 'create'])->name('kehadiran.create');
+    Route::post('kehadiran/store', [AttendanceController::class, 'store'])->name('kehadiran.store');
+    Route::get('/kehadiran/{id}/edit', [AttendanceController::class, 'edit'])->name('kehadiran.edit');
+    Route::put('/kehadiran/{id}/update', [AttendanceController::class, 'update'])->name('kehadiran.update');
+    Route::delete('/kehadiran/{id}/delete', [AttendanceController::class, 'destroy'])->name('kehadiran.destroy');
 
+    //untuk cuti_izin    
+    Route::get('/cuti_izin', [AttendanceController::class, 'index'])->name('cuti_izin');
+    Route::get('/cuti_izin', function () {
+        return view('attendance/cuti_izin');
+    })->name('cuti_izin');
+    Route::get('/cuti_izin/create', [AttendanceController::class, 'create'])->name('cuti_izin.create');
+    Route::post('cuti/store', [AttendanceController::class, 'store'])->name('cuti_izin.store');
+    Route::get('/cuti_izin/{id}/edit', [AttendanceController::class, 'edit'])->name('cuti_izin.edit');
+    Route::put('/cuti_izin/{id}/update', [AttendanceController::class, 'update'])->name('cuti_izin.update');
+    Route::delete('/cuti_izin/{id}/delete', [AttendanceController::class, 'destroy'])->name('cuti_izin.destroy');
 
     Route::get('/clientside', [DataTableController::class, 'clientside'])->name('clientside');
     Route::get('/serverside', [DataTableController::class, 'serverside'])->name('serverside');

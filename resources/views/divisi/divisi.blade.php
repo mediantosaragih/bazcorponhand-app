@@ -13,7 +13,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active">Divisi</li>
                     </ol>
                 </div><!-- /.col -->
@@ -58,12 +58,12 @@
                                         <span class="js-lists-values-email">{{$divisi->jumlah}}</span>
                                     </td>
                                     <td style="width: 10px;" align="center" >
-                                    <a href="./detail/{{$divisi->name_divisi}}">
+                                    <a href="{{ route('admin.divisi.edit', ['divisi_id' => $divisi->divisi_id]) }}">
                                         <span class="icon">
                                             <i class="fas fa-pencil-alt"></i> <!-- Icon pensil (pencil) -->
                                         </span>
                                         </a>
-                                        <a href="./hapusDivisi/{{$divisi->name_divisi}}">
+                                        <a href="{{ route('admin.divisi.destroy', ['divisi_id' => $divisi->divisi_id]) }}">
                                             <span class="icon">
                                                 <i class="fas fa-trash-alt"></i> <!-- Icon tong sampah (trash) -->
                                             </span>
