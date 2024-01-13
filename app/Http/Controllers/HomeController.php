@@ -18,7 +18,7 @@ class HomeController extends Controller
 
     public function dashboard()
     {
-        return view('dashboard');
+        return view('dashboard.dashboard');
 
         return abort(403);
     }
@@ -42,7 +42,7 @@ class HomeController extends Controller
 
         $data = $data->get();
 
-        return view('index', compact('data', 'request'));
+        return view('dashboard.dashboard', compact('data', 'request'));
     }
 
     public function assets(Request $request)

@@ -8,7 +8,7 @@
     <meta name="theme-color" content="#6777ef" />
     <link rel="apple-touch-icon" href="{{ asset('logo.PNG') }}">
     <link rel="manifest" href="{{ asset('/manifest.json') }}">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>HRIS</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -22,6 +22,7 @@
         href="{{ asset('lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('lte/plugins/fullcalendar/main.css') }}">
     <!-- JQVMap -->
     <link rel="stylesheet" href="{{ asset('lte/plugins/jqvmap/jqvmap.min.css') }}">
     <!-- Theme style -->
@@ -32,6 +33,8 @@
     <link rel="stylesheet" href="{{ asset('lte/plugins/daterangepicker/daterangepicker.css') }}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
+    <link href="{{asset('admin_assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    @stack('scripts')
 
     @yield('css')
 </head>
@@ -41,8 +44,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60"
-                width="60">
+            <img class="animation__shake" src="{{ asset('lte/dist/img/AdminLTELogo.png') }}" alt="AdminLTELogo" height="60" width="60">
         </div>
 
         <!-- Navbar -->
@@ -194,10 +196,10 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
-                <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+            <a href="{{route('admin.dashboard')}}" class="brand-link">
+                <img src="{{ asset('lte/dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                     style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">HRIS</span>
             </a>
 
             <!-- Sidebar -->
@@ -205,10 +207,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{asset('lte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                        <a href="#" class="d-block">{{auth()->user()->name}}</a>
                     </div>
                 </div>
 
@@ -231,7 +233,7 @@
                         data-accordion="false">
 
                         <li class="nav-item">
-                            <a href="{{ route('admin.dashboard') }}" class="nav-link">
+                            <a href="{{route('admin.dashboard')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Dashboard
@@ -239,23 +241,101 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.index') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Users
-                                </p>
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-database"></i>
+                            <p>
+                                Master Data
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('admin.employe')}}" class="nav-link">
+                                <i class="far fa-user nav-icon"></i>
+                                <p>Data Employe</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('admin.divisi')}}" class="nav-link">
+                                <i class="far fa-id-badge nav-icon"></i>
+                                <p>Data Divisi</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('admin.gaji')}}" class="nav-link">
+                                <i class="far fa-hourglass nav-icon"></i>
+                                <p>Data Gaji</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('admin.user')}}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data User</p>
+                                </a>
+                            </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-calendar"></i>
+                            <p>
+                                Data Jadwal
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('admin.roster')}}" class="nav-link">
+                                <i class="far fa-edit nav-icon"></i>
+                                <p>Roster</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('admin.lembur')}}" class="nav-link">
+                                <i class="far fa-edit nav-icon"></i>
+                                <p>Lembur</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('admin.cuti')}}" class="nav-link">
+                                <i class="far fa-edit nav-icon"></i>
+                                <p>Cuti</p>
+                                </a>
+                            </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-clock"></i>
+                            <p>
+                                Attendance
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+  
+                            </ul>
+                        </li>
+                        <!--  -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-signal"></i>
+                            <p>
+                                KPI
+                            </p>
+                            </a>
+                            
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-graduation-cap"></i>
+                            <p>
+                                Training
+                            </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.assets') }}" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
-                                <p>
-                                    Assets
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{ route('logout') }}" class="nav-link">
+                            <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Logout
@@ -272,10 +352,11 @@
 
         <!-- Content Wrapper. Contains page content -->
         @yield('content')
+        @yield('importExel')
         <!-- /.content-wrapper -->
         <footer class="main-footer">
-            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-            All rights reserved.
+            <strong>HRBP</strong>
+            Jakarta
             <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 3.2.0
             </div>
@@ -293,6 +374,7 @@
     <script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
     <!-- jQuery UI 1.11.4 -->
     <script src="{{ asset('lte/plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('lte/plugins/fullcalendar/main.js') }}"></script>
     <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
     <script>
         $.widget.bridge('uibutton', $.ui.button)
@@ -319,16 +401,22 @@
     <script src="{{ asset('lte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
     <!-- AdminLTE App -->
     <script src="{{ asset('lte/dist/js/adminlte.js') }}"></script>
+    <script src="{{asset('admin_assets/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('admin_assets/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{asset('admin_assets/js/demo/datatables-demo.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('lte/dist/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{ asset('lte/dist/js/pages/dashboard.js') }}"></script>
     <script src="{{ asset('/sw.js') }}"></script>
+    <script src="{{ asset('js/style.js') }}"></script>
     <script>
         if ("serviceWorker" in navigator) {
             // Register a service worker hosted at the root of the
             // site using the default scope.
-            navigator.serviceWorker.register("/sw.js").then(
+            navigator.serviceWorker.register("asset('js/style.js')").then(
                 (registration) => {
                     console.log("Service worker registration succeeded:", registration);
                 },
@@ -342,6 +430,7 @@
     </script>
 
     @yield('scripts')
+    @stack('scripts_bottom')
 </body>
 
 </html>
