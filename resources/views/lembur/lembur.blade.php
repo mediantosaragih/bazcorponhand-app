@@ -58,8 +58,9 @@
                                         <span class="js-lists-values-email">{{$lembur->harga_lembur}}</span>
                                     </td>
                                     <td>
-                                    <a href="{{ route('admin.user.edit',['id' => $lembur->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i> Edit</a>
-                                    <a data-toggle="modal" data-target="#modal-hapus{{ $lembur->id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Hapus</a>
+                                    <a href="{{ route('admin.lembur.edit', $lembur->id) }}"><i class="fas fa-pen"></i></a>
+                                    <!-- <a href="{{ route('admin.user.edit',['id' => $lembur->id]) }}" class="btn btn-primary"><i class="fas fa-pen"></i> Edit</a> -->
+                                    <a data-toggle="modal" data-target="#modal-hapus{{ $lembur->id }}"><i class="fas fa-trash-alt"></i> </a>
                                 </td>
                                 </tr>
                                 <div class="modal fade" id="modal-hapus{{ $lembur->id }}">
