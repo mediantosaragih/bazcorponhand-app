@@ -79,13 +79,12 @@
                             <i class="fa fa-user"></i> 
                             <span>Profil</span>
                         </a>
-                    </div>
-                    <div class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" href="{{route('logout')}}">
                             <i class="fa fa-lock"></i> 
                             <span>Logout</span>
                         </a>
                     </div>
+                    
                 </li>
             </ul>
         </nav>
