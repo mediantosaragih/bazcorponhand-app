@@ -89,6 +89,31 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::put('/rostere/{id}/update', [RosterController::class, 'update'])->name('roster.update');
     Route::delete('/rostere/{id}/delete', [RosterController::class, 'destroy'])->name('roster.destroy');
 
+    //shift_daily
+    Route::get('/shift_daily', function () {
+        return view('roster/shift_daily');
+    })->name('shift_daily');
+    // Route::get('/shift_daily', [RosterController::class, 'index'])->name('shift_daily');
+    Route::get('/shift_daily/create', function () {
+        return view('roster/create_shift_daily');
+    })->name('shift_daily.create');
+    // Route::get('/shift_daily/create', [RosterController::class, 'create'])->name('shift_daily.create');
+    Route::post('shift_daily/store', [RosterController::class, 'store'])->name('shift_daily.store');
+    Route::get('/shift_dailye/{id}/edit', [RosterController::class, 'edit'])->name('shift_daily.edit');
+    Route::put('/shift_dailye/{id}/update', [RosterController::class, 'update'])->name('shift_daily.update');
+    Route::delete('/shift_dailye/{id}/delete', [RosterController::class, 'destroy'])->name('shift_daily.destroy');
+    
+    //shift_group
+    Route::get('/shift_group', function () {
+        return view('roster/shift_group');
+    })->name('shift_group');
+    // Route::get('/shift_group', [RosterController::class, 'index'])->name('shift_group');
+    Route::get('/shift_group/create', [RosterController::class, 'create'])->name('shift_group.create');
+    Route::post('shift_group/store', [RosterController::class, 'store'])->name('shift_group.store');
+    Route::get('/shift_groupe/{id}/edit', [RosterController::class, 'edit'])->name('shift_group.edit');
+    Route::put('/shift_groupe/{id}/update', [RosterController::class, 'update'])->name('shift_group.update');
+    Route::delete('/shift_groupe/{id}/delete', [RosterController::class, 'destroy'])->name('shift_group.destroy');
+
     //untuk lembur    
     Route::get('/lembur', [LemburController::class, 'index'])->name('lembur');
     Route::get('/lembur/create', [LemburController::class, 'create'])->name('lembur.create');
