@@ -99,16 +99,19 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     })->name('shift_daily.create');
     // Route::get('/shift_daily/create', [RosterController::class, 'create'])->name('shift_daily.create');
     Route::post('shift_daily/store', [RosterController::class, 'store'])->name('shift_daily.store');
-    Route::get('/shift_dailye/{id}/edit', [RosterController::class, 'edit'])->name('shift_daily.edit');
-    Route::put('/shift_dailye/{id}/update', [RosterController::class, 'update'])->name('shift_daily.update');
-    Route::delete('/shift_dailye/{id}/delete', [RosterController::class, 'destroy'])->name('shift_daily.destroy');
+    Route::get('/shift_daily/{id}/edit', [RosterController::class, 'edit'])->name('shift_daily.edit');
+    Route::put('/shift_daily/{id}/update', [RosterController::class, 'update'])->name('shift_daily.update');
+    Route::delete('/shift_daily/{id}/delete', [RosterController::class, 'destroy'])->name('shift_daily.destroy');
     
     //shift_group
     Route::get('/shift_group', function () {
         return view('roster/shift_group');
     })->name('shift_group');
     // Route::get('/shift_group', [RosterController::class, 'index'])->name('shift_group');
-    Route::get('/shift_group/create', [RosterController::class, 'create'])->name('shift_group.create');
+    Route::get('/shift_group/create', function () {
+        return view('roster/create_shift_group');
+    })->name('shift_group.create');
+    // Route::get('/shift_group/create', [RosterController::class, 'create'])->name('shift_group.create');
     Route::post('shift_group/store', [RosterController::class, 'store'])->name('shift_group.store');
     Route::get('/shift_groupe/{id}/edit', [RosterController::class, 'edit'])->name('shift_group.edit');
     Route::put('/shift_groupe/{id}/update', [RosterController::class, 'update'])->name('shift_group.update');

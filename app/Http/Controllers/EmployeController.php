@@ -24,7 +24,9 @@ class EmployeController extends Controller
 
     public function create()
     {
-        return view('employe.create');
+        $divisi = DB::table('general_divisi')->orderBy('name_divisi', 'asc')->get();
+
+        return view('employe.create')->with('divisi', $divisi);
     }
 
     public function store(Request $request)
