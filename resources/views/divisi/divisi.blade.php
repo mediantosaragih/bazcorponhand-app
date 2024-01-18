@@ -30,11 +30,8 @@
             <div class="card-header mb-2">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="{{ route('admin.divisi.create') }}" class="btn btn-success">Tambah Data</a>
-                </div>
-                <div class="col-md-3">
+                    <a href="{{ route('admin.divisi.create') }}" class="btn btn-primary">Tambah Data</a>
                     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#importModal">Import Data</button>
-                    
                     <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -65,7 +62,7 @@
             </div>
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" id="example1" width="100%" cellspacing="0">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th>No</th>
