@@ -58,6 +58,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     // })->name('employe.edits');
     Route::put('/employee/{general_karyawan_id}/update', [EmployeController::class, 'update'])->name('employe.update');
     Route::get('/employee/{general_karyawan_id}/delete', [EmployeController::class, 'destroy'])->name('employe.destroy');
+    Route::post('/employee/import-proses', [EmployeController::class, 'import_proses'])->name('employe.import-proses');
 
      //untuk divisi    
      Route::get('/divisi', [DivisiController::class, 'index'])->name('divisi');
@@ -66,6 +67,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
      Route::get('/divisie/{divisi_id}/edit', [DivisiController::class, 'edit'])->name('divisi.edit');
      Route::put('/divisie/{divisi_id}/update', [DivisiController::class, 'update'])->name('divisi.update');
      Route::get('/divisie/{divisi_id}/delete', [DivisiController::class, 'destroy'])->name('divisi.destroy');
+     Route::post('/divisi/import-proses', [DivisiController::class, 'import_proses'])->name('divisi.import-proses');
 
     //untuk gaji    
     Route::get('/gaji', [GajiController::class, 'index'])->name('gaji');

@@ -12,27 +12,27 @@ use PhpParser\Node\Stmt\Return_;
 
 class BelajarController extends Controller
 {
-    public function cache(Request $request){
+    // public function cache(Request $request){
 
-        $data = Cache::remember('users',now()->addMinutes(5),function(){
-            return User::get();
-        });
+    //     $data = Cache::remember('users',now()->addMinutes(5),function(){
+    //         return User::get();
+    //     });
 
-        return view('belajar.cache',compact('data'));
-    }
+    //     return view('belajar.cache',compact('data'));
+    // }
 
-    public function import(Request $request){
+    // public function import(Request $request){
 
-        return view('import');
-    }
+    //     return view('import');
+    // }
 
-    public function import_proses(Request $request){
-        try {
+    // public function import_proses(Request $request){
+    //     try {
             
-            Excel::import(new MultipleSheetsImport(), $request->file('file'));
-            return redirect()->back();
-        } catch (\Exception $e) {
-            return $e->getMessage();
-        }
-    }
+    //         Excel::import(new MultipleSheetsImport(), $request->file('file'));
+    //         return redirect()->back();
+    //     } catch (\Exception $e) {
+    //         return $e->getMessage();
+    //     }
+    // }
 }
