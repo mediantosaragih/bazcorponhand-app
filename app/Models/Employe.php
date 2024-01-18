@@ -62,4 +62,9 @@ class Employe extends Model
         'general_catatan',
     ];
     use HasFactory;
+
+    public function divisi()
+    {
+        return $this->belongsTo(Divisi::class, 'divisi_id');
+    }
 }

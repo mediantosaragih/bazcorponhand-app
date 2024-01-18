@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use App\Imports\EmployeImport;
 
 use App\Http\Imports\DataKaryawanImport;
 
@@ -169,6 +170,17 @@ class EmployeController extends Controller
         DB::table('general')->where('general_karyawan_id', $general_karyawan_id)->delete();
         
         return redirect()->route('admin.employe');
+    }
+    
+    public function import_proses(Request $request){
+        // dd($request->all());
+        try {
+            
+            Excel::import(new EmployeImport(), $request->file('file'));
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
     
 }

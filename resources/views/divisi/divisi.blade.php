@@ -28,9 +28,40 @@
         
         <div class="card shadow mb-4">
             <div class="card-header mb-2">
-                <div class="">
+            <div class="row">
+                <div class="col-md-3">
                     <a href="{{ route('admin.divisi.create') }}" class="btn btn-success">Tambah Data</a>
                 </div>
+                <div class="col-md-3">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#importModal">Import Data</button>
+                    
+                    <div class="modal fade" id="importModal" tabindex="-1" role="dialog" aria-labelledby="importModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="importModalLabel">Import Data</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="{{ route('admin.divisi.import-proses') }}" method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="fileInput">Pilih File</label>
+                                            <input type="file" class="form-control" id="fileInput" name="file">
+                                            @error('file')
+                                                <small class="text-danger">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
             </div>
             <div class="card-body">
                 <div class="table-responsive">

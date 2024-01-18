@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\DivisiImport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Excel;
 
 use App\Models\Divisi;
 
@@ -83,4 +85,18 @@ class DivisiController extends Controller
         
     //     return view('main/employee/detail_data')->with('detail_karyawan', $detail_karyawan);
     // }
+    // public function import(Request $request){
+
+    //     return view('import');
+    // }
+    public function import_proses(Request $request){
+        // dd($request->all());
+        try {
+            
+            Excel::import(new DivisiImport(), $request->file('file'));
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }
