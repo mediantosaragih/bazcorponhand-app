@@ -13,6 +13,7 @@ use App\Http\Controllers\LemburController;
 use App\Http\Controllers\CutiController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\ShiftDailyController;
 
 
 /*
@@ -92,18 +93,22 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::delete('/rostere/{id}/delete', [RosterController::class, 'destroy'])->name('roster.destroy');
 
     //shift_daily
-    Route::get('/shift_daily', function () {
-        return view('roster/shift_daily');
-    })->name('shift_daily');
-    // Route::get('/shift_daily', [RosterController::class, 'index'])->name('shift_daily');
+    // Route::get('/shift_daily', function () {
+    //     return view('roster/shift_daily');
+    // })->name('shift_daily');
+    // Route::get('/shift_daily', 'App\Http\Controllers\ShiftDailyController@index')->name('shift_daily');
+    Route::get('/shift_daily', [ShiftDailyController::class, 'index'])->name('shift_daily');
     Route::get('/shift_daily/create', function () {
         return view('roster/create_shift_daily');
     })->name('shift_daily.create');
-    // Route::get('/shift_daily/create', [RosterController::class, 'create'])->name('shift_daily.create');
-    Route::post('shift_daily/store', [RosterController::class, 'store'])->name('shift_daily.store');
-    Route::get('/shift_daily/{id}/edit', [RosterController::class, 'edit'])->name('shift_daily.edit');
-    Route::put('/shift_daily/{id}/update', [RosterController::class, 'update'])->name('shift_daily.update');
-    Route::delete('/shift_daily/{id}/delete', [RosterController::class, 'destroy'])->name('shift_daily.destroy');
+    Route::get('/shift_daily/detail', function () {
+        return view('roster/detail_shift_daily');
+    })->name('shift_daily.detail');
+    // Route::get('/shift_daily/create', [ShiftDailyController::class, 'create'])->name('shift_daily.create');
+    Route::post('shift_daily/store', [ShiftDailyController::class, 'store'])->name('shift_daily.store');
+    Route::get('/shift_daily/{shift_daily_code}/edit', [ShiftDailyController::class, 'edit'])->name('shift_daily.edit');
+    Route::put('/shift_daily/{shift_daily_code}/update', [ShiftDailyController::class, 'update'])->name('shift_daily.update');
+    Route::get('/shift_daily/{shift_daily_code}/delete', [ShiftDailyController::class, 'destroy'])->name('shift_daily.destroy');
     
     //shift_group
     Route::get('/shift_group', function () {

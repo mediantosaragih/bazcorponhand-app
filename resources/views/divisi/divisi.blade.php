@@ -86,7 +86,7 @@
                                         <span class="js-lists-values-email">{{$divisi->jumlah}}</span>
                                     </td>
                                     <td style="width: 10px;" align="center" >
-                                    <a href="{{ route('admin.divisi.edit', ['divisi_id' => $divisi->divisi_id]) }}">
+                                        <a href="{{ route('admin.divisi.edit', ['divisi_id' => $divisi->divisi_id]) }}">
                                         <span class="icon">
                                             <i class="fas fa-pencil-alt"></i> <!-- Icon pensil (pencil) -->
                                         </span>
