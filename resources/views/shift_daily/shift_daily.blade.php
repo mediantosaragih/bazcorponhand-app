@@ -10,7 +10,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Attendance  </h1>
+                    <h1 class="m-0">Shift Daily</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -50,7 +50,7 @@
                                         <td>{{ $absensi->general_nickname }}</td>
                                         <td>{{ $absensi->general_jenis_kelamin }}</td>
                                             <td style="width: 10px;" align="center" >
-                                            <a href="{{ route('admin.detail_kehadiran.show', ['id' => $absensi->id]) }}">
+                                            <a href="{{ route('admin.shift_daily.show', ['id' => $absensi->id]) }}">
                                                 <span class="icon">
                                                     <i class="fas fa-eye"></i> <!-- Icon pensil (pencil) -->
                                                 </span>

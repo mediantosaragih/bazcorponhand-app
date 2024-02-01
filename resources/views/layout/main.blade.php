@@ -195,6 +195,12 @@
                             </a>
                             <ul class="nav nav-treeview">
                             <li class="nav-item">
+                                <a href="{{route('admin.shift')}}" class="nav-link">
+                                <i class="far fa-edit nav-icon"></i>
+                                <p>Shift</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{route('admin.shift_daily')}}" class="nav-link">
                                 <i class="far fa-edit nav-icon"></i>
                                 <p>Shift Daily</p>

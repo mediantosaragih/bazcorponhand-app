@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('general_divisi', function (Blueprint $table) {
-            $table->unsignedBigInteger('id')->nullable();
-            $table->string('divisi_id');
-            $table->string('name_divisi');
-            $table->string('jumlah');
+        Schema::create('shift_groups', function (Blueprint $table) {
+            $table->id();
+            $table->string('group_code');
+            $table->string('group_name');
+            $table->string('overtime_based_on');
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('general_divisi');
+        Schema::dropIfExists('shift_groups');
     }
 };
