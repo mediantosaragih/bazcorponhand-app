@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('general', function (Blueprint $table) {
-            $table->unsignedBigInteger('general_id')->nullable();
-            $table->bigInteger('general_karyawan_id');
+        Schema::create('employes', function (Blueprint $table) {
+            $table->id();
+            $table->string('general_karyawan_id');
             $table->bigInteger('general_nomor_kartu_akses');
             $table->string('general_firstname');
             $table->string('general_lastname');
@@ -63,8 +63,7 @@ return new class extends Migration
             $table->date('general_kontrak_berjalan_mulai');
             $table->date('general_kontrak_berjalan_berakhir');
             $table->string('general_catatan',5000);
-            $table->timestamp('created_at')->nullable();
-            $table->timestamp('updated_at')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -73,6 +72,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('general');
+        Schema::dropIfExists('employes');
     }
 };

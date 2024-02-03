@@ -34,224 +34,36 @@
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
-                                    <tr>
-                                        <th>No</th>
+
+                                        <tr>
                                         <th>Nama</th>
-                                        <th>EmpNo</th>
-                                        <th>21 July 2023</th>
-                                        <th>22 July 2023</th>
-                                        <th>23 July 2023</th>
-                                        <th>24 July 2023</th>
-                                        <th>25 July 2023</th>
-                                        <th>26 July 2023</th>
-                                        <th>27 July 2023</th>
-                                        <th>28 July 2023</th>
-                                        <th>29 July 2023</th>
-                                        <th>30 July 2023</th>
-                                        <th>31 July 2023</th>
-                                        <th>1 Agustus 2023</th>
-                                        <th>2 Agustus 2023</th>
-                                        <th>3 Agustus 2023</th>
-                                        <th>4 Agustus 2023</th>
-                                        <th>5 Agustus 2023</th>
-                                        <th>6 Agustus 2023</th>
-                                        <th>7 Agustus 2023</th>
-                                        <th>8 Agustus 2023</th>
-                                        <th>9 Agustus 2023</th>
-                                        <th>10 Agustus 2023</th>
-                                        <th>11 Agustus 2023</th>
-                                        <th>12 Agustus 2023</th>
-                                        <th>13 Agustus 2023</th>
-                                        <th>14 Agustus 2023</th>
-                                        <th>15 Agustus 2023</th>
-                                        <th>16 Agustus 2023</th>
-                                        <th>17 Agustus 2023</th>
-                                        <th>18 Agustus 2023</th>
-                                        <th>19 Agustus 2023</th>
-                                        <th>20 Agustus 2023</th>
+                                        <th>Tanggal</th>
+                                        <!-- <th colspan="5">Jadwal Shift</th> -->
+                                        <!-- <th>Keterangan</th> -->
+                                        <th>Action</th>
+                                        <th >Start Time</th>
+                                        <th >End Time</th>
+                                        <th >Data Type</th>
+                                        <th >Flexible</th>
+                                        <th >Jadwal</th>
+
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>Agus Maulana</td>
-                                        <td>2253</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Didik Maryanto</td>
-                                        <td>2254</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                    </tr>
-                                    <tr>
-                                        <td>3</td>
-                                        <td>Acep Dani Wildanur</td>
-                                        <td>2255</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                    </tr>
-                                    <tr>
-                                        <td>4</td>
-                                        <td>Ade Afrizal</td>
-                                        <td>2256</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                    </tr>
-                                    <tr>
-                                        <td>5</td>
-                                        <td>Harnadi</td>
-                                        <td>2257</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>SECURITY_1_MALAM</td>
-                                        <td>OFF</td>
-                                        <td>OFF</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_PAGI</td>
-                                        <td>SECURITY_1_SIANG</td>
-                                    </tr>
+                                <tbody >
+                                        <tr>
+                                        @foreach($absensis as $absensi)
+                                            <td>{{ $absensi->employes->general_firstname }}</td>
+                                            <td>{{ $absensi->tanggal }}</td>
+                                            <td>{{ $absensi->shifts->start_time }}</td>
+                                            <td>{{ $absensi->shifts->end_time }}</td>
+                                            <td>{{ $absensi->shifts->data_type }}</td>
+                                            <td>{{ $absensi->shifts->flexible_time }}</td>
+                                            <td>{{ $absensi->shifts->end_time }}</td>
+                                            <td></td>
+                                            <td></td>
+
+                                        </tr>
+                                        @endforeach
                                 </tbody>
                             </table>
                         </div>
