@@ -43,13 +43,14 @@
                                             <th rowspan="2">Tanggal</th>
                                             <th colspan="3">Masuk</th>
                                             <th colspan="3">Keluar</th>
+                                            <th rowspan="2">Kompensasi</th>
                                             <th rowspan="2">Ket</th>
                                             <th rowspan="2">Action</th>
                                         </tr>
                                         <tr>
                                             <th >Jadwal</th>
                                             <th >Check in</th>
-                                            <th >Terlambat</th>
+                                            <th >Status</th>
                                             <th >Jadwal</th>
                                             <th >Check out</th>
                                             <th >Ovt</th>

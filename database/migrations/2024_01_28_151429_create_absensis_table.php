@@ -21,11 +21,12 @@ return new class extends Migration
             $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');
         
             $table->unsignedBigInteger('karyawan_id');
-            $table->foreign('karyawan_id')->references('id')->on('employes')->onDelete('cascade');
-        
+            $table->foreign('karyawan_id')->references('id')->on('employes')->onDelete('cascade'); // Assuming 'employees' is the correct table name
+            
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
