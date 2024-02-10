@@ -41,6 +41,10 @@ class EmployeshiftController extends Controller
             'karyawan_id' => 'required',
             'shift_id' => 'required',
             'tanggal' => 'required',
+            'lokasi_absesnsi' => 'required',
+            'lokasi_code' => 'required',
+            'lokasi_nama' => 'required',
+            'lokasi_kordinat' => 'required',
 
         ]);
     
@@ -49,6 +53,10 @@ class EmployeshiftController extends Controller
         $absensis->karyawan_id = $request->input('karyawan_id');
         $absensis->shift_id = $request->input('shift_id');
         $absensis->tanggal = $request->input('tanggal');
+        $absensis->lokasi_absensi = $request->input('lokasi_absensi');
+        $absensis->lokasi_code = $request->input('lokasi_code');
+        $absensis->lokasi_nama = $request->input('lokasi_nama');
+        $absensis->lokasi_kordinat = $request->input('lokasi_kordinat');
         $absensis->save();
     
         $employes = Employe::all();

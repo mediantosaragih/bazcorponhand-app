@@ -21,7 +21,7 @@ class ShiftController extends Controller
      */
     public function create()
     {
-        return view('roster.create');
+        return view('roster.create_shift_daily');
     }
 
     /**

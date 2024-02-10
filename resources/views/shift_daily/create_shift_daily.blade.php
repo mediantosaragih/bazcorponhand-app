@@ -49,10 +49,22 @@
                                 <input  name="tanggal" type="date" class="form-control" required>
                             </div>
                             <!-- <div class="col-md-8">
-                                <label class="col-form-label form-label">Day Type</label>
+                                <label class="col-form-label form-label">Lokasi Absensi</label>
                                 <input  name="" type="text" class="form-control" required>
                             </div>
                             <div class="col-md-8">
+                                <label class="col-form-label form-label">Lokasi Code</label>
+                                <input  name="" type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="col-form-label form-label">Lokasi Nama</label>
+                                <input  name="" type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-8">
+                                <label class="col-form-label form-label">Lokasi Kordinat</label>
+                                <input  name="" type="text" class="form-control" required>
+                            </div> -->
+                            <!-- <div class="col-md-8">
                                 <label class="col-form-label form-label">Shift Daily Code PH</label>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="radio1">

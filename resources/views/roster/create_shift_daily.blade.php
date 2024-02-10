@@ -36,6 +36,10 @@
                                 <input  name="shift_daily_code" type="text" class="form-control" required>
                             </div>
                             <div class="col-md-8">
+                                <label class="col-form-label form-label">Nama Shift</label>
+                                <input  name="nama_shift" type="text" class="form-control" required>
+                            </div>
+                            <div class="col-md-8">
                                 <label class="col-form-label form-label">Day Type</label>
                                 <input  name="day_type" type="text" class="form-control" required>
                             </div>

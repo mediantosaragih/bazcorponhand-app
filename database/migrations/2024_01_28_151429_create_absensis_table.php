@@ -16,7 +16,11 @@ return new class extends Migration
             $table->date('tanggal');
             $table->dateTime('check_in'); 
             $table->dateTime('check_out');
-            
+            $table->string('lokasi_absensi');
+            $table->string('lokasi_code');
+            $table->string('lokasi_nama');
+            $table->string('lokasi_kordinat');  
+
             $table->unsignedBigInteger('shift_id');
             $table->foreign('shift_id')->references('id')->on('shifts')->onDelete('cascade');
         

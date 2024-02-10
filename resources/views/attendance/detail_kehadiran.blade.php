@@ -41,7 +41,7 @@
                                     <thead>
                                         <tr>
                                             <th rowspan="2">Tanggal</th>
-                                            <th colspan="3">Masuk</th>
+                                            <th colspan="7">Masuk</th>
                                             <th colspan="3">Keluar</th>
                                             <th rowspan="2">Kompensasi</th>
                                             <th rowspan="2">Ket</th>
@@ -50,6 +50,10 @@
                                         <tr>
                                             <th >Jadwal</th>
                                             <th >Check in</th>
+                                            <th >Lokasi Absensi</th>
+                                            <th >Lokasi Kode</th>
+                                            <th >Lokasi Nama</th>
+                                            <th >Lokasi Kordinat</th>
                                             <th >Status</th>
                                             <th >Jadwal</th>
                                             <th >Check out</th>
@@ -62,10 +66,15 @@
                                                 <td>{{ $absensi->tanggal }}</td>
                                                 <td>{{ $absensi->shifts->start_time }}</td>
                                                 <td>{{ $absensi->check_in }}</td>
+                                                <td>{{ $absensi->lokasi_absensi }}</td>
+                                                <td>{{ $absensi->lokasi_code }}</td>
+                                                <td>{{ $absensi->lokasi_nama }}</td>
+                                                <td>{{ $absensi->lokasi_kordinat }}</td>
                                                 <td>telat</td>
                                                 <td>{{ $absensi->shifts->end_time }}</td>
                                                 <td>{{ $absensi->check_out }}</td>
                                                 <td>ovt</td>
+                                                <td>3 menit</td>
                                                 <td>keterangan</td>
 
                                             </tr>
