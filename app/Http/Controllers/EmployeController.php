@@ -158,7 +158,7 @@ class EmployeController extends Controller
             'general_catatan',
         ]);
 
-        DB::table('general')->where('general_karyawan_id', $data_karyawan['general_karyawan_id'])->update($data_karyawan);
+        DB::table('employes')->where('general_karyawan_id', $data_karyawan['general_karyawan_id'])->update($data_karyawan);
 
         return redirect()->route('admin.employe');
     }
@@ -167,7 +167,7 @@ class EmployeController extends Controller
     {
         $general_karyawan_id = $request -> general_karyawan_id;
 
-        DB::table('general')->where('general_karyawan_id', $general_karyawan_id)->delete();
+        DB::table('employes')->where('general_karyawan_id', $general_karyawan_id)->delete();
         
         return redirect()->route('admin.employe');
     }
