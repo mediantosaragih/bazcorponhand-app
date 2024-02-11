@@ -34,6 +34,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
     <link href="{{asset('admin_assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @stack('scripts')
 
     @yield('css')
@@ -313,7 +314,7 @@
                             </p>
                             </a>
                             <ul class="nav nav-treeview">
-  
+
                             </ul>
                         </li>
                         <!--  -->
@@ -324,7 +325,7 @@
                                 KPI
                             </p>
                             </a>
-                            
+
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
@@ -333,6 +334,23 @@
                                 Training
                             </p>
                             </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-wrench"></i>
+                            <p>
+                                Setting
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{route('admin.setting.time-and-attendance')}}" class="nav-link">
+                                <i class="far fa-clock nav-icon"></i>
+                                <p>Time & Attendance</p>
+                                </a>
+                            </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
