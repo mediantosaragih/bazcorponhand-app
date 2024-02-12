@@ -27,7 +27,7 @@
                 <div class="card shadow mb-4">
                     <div class="card-header mb-2">
                         <div class="">
-                        <a href="{{route('admin.shift_daily.create')}}" class="btn btn-success">Tambah Shift Daily</a>
+                        <a href="{{route('admin.shift.create')}}" class="btn btn-success">Tambah Shift</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -37,8 +37,6 @@
                                     <tr>                                  
                                         <th>Shift Code</th>
                                         <th>Nama Shift</th>
-                                        <th>Data Type</th>
-                                        <th>Flexible Time</th>
                                         <th>Start Time</th>
                                         <th>End Time</th>
                                         <th>Action</th>
@@ -54,24 +52,18 @@
                                             <span class="js-lists-values-nama">{{$shift->nama_shift}}</span>
                                         </td>
                                         <td style="">
-                                            <span class="js-lists-values-nama">{{$shift->data_type}}</span>
-                                        </td>
-                                        <td style="">
-                                            <span class="js-lists-values-nama">{{$shift->flexible_time}}</span>
-                                        </td>
-                                        <td style="">
                                             <span class="js-lists-values-nama">{{$shift->start_time}}</span>
                                         </td>
                                         <td style="">
                                             <span class="js-lists-values-nama">{{$shift->end_time}}</span>
                                         </td>
                                         <td style="width: 10px;" align="center" >
-                                        <a href="">
+                                            <a href="{{ route('admin.shift.edit', ['id' => $shift->id]) }}">
                                             <span class="icon">
                                                 <i class="fas fa-pencil-alt"></i> <!-- Icon pensil (pencil) -->
                                             </span>
                                             </a>
-                                            <a href="">
+                                            <a href="{{ route('admin.shift.destroy', ['id' => $shift->id]) }}">
                                                 <span class="icon">
                                                     <i class="fas fa-trash-alt"></i> <!-- Icon tong sampah (trash) -->
                                                 </span>

@@ -36,7 +36,7 @@
                         </div>
                         <div class="card-header mb-2">
                             <div class="">
-                            <a href="{{ route('admin.shift_daily.create') }}">Create Shift</a>
+                            <!-- <a href="{{ route('admin.shift_daily.create') }}">Create Shift</a> -->
                             </div>
                         </div>
                         <div class="card-body">

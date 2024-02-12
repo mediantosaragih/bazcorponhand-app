@@ -44,45 +44,38 @@
                                 @endforeach
                                 </select>
                             </div>
-                            <div class="col-md-8">
-                                <label class="col-form-label form-label">Tanggal</label>
+                            <div class="col-md-6">
+                                <label class="col-form-label form-label">Dari Tanggal</label>
                                 <input  name="tanggal" type="date" class="form-control" required>
                             </div>
-                            <!-- <div class="col-md-8">
-                                <label class="col-form-label form-label">Day Type</label>
-                                <input  name="" type="text" class="form-control" required>
+                            <div class="col-md-6">
+                                <label class="col-form-label form-label">Sampai Tanggal</label>
+                                <input  name="tanggal" type="date" class="form-control" required>
                             </div>
-                            <div class="col-md-8">
+
+                            <div class="col-md-6">
                                 <label class="col-form-label form-label">Shift Daily Code PH</label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="radio1">
+                                    <input class="form-check-input" type="radio" name="off">
                                     <label class="form-check-label">Off Day</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="radio1">
+                                    <input class="form-check-input" type="radio" name="flexible">
                                     <label class="form-check-label">Flexible Work Day</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="radio1">
+                                    <input class="form-check-input" type="radio" name="none">
                                     <label class="form-check-label">No Changed</label>
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <label class="col-form-label form-label">Flexible Shift</label>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" name="1" id="exampleCheck1">
                                     <label class="form-check-label" for="exampleCheck1">Yes</label>
                                 </div>
-                            </div>
-                            <div class="col-md-8">
-                                <label class="col-form-label form-label">Start Time</label>
-                                <input  name="" type="date" class="form-control" required>
-                            </div>
-                            <div class="col-md-8">
-                                <label class="col-form-label form-label">End Time</label>
-                                <input  name="" type="date" class="form-control" required>
-                            </div>
-                            <div class="col-md-8">
+                            </div> 
+                            <div class="col-md-6">
                                 <label class="col-form-label form-label">Grace for Late</label>
                                 <div class="input-group">
                                     <input  name="" type="number" class="form-control" required>
@@ -91,7 +84,7 @@
                                         </div>
                                 </div>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <label class="col-form-label form-label">Productive Work Time</label>
                                 <div class="input-group"> 
                                     <input  name="" type="number" class="form-control" required>
@@ -100,18 +93,7 @@
                                     </div>
                                 </div>  
                             </div>
-                            <div class="col-md-8">
-                                <label for="exampleInputFile">File Input Excel</label>
-                                <div class="input-group">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="exampleInputFile">
-                                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                </div>
-                                <div class="input-group-append">
-                                    <span class="input-group-text">Upload</span>
-                                </div>
-                            </div><br> -->
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <label></label>
                                 <div class="" style="d-flex justify-content-center align-items-center text-align:center">
                                     <button type="submit" class="btn btn-success">Simpan</button>

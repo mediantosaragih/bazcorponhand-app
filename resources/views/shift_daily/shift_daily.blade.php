@@ -25,11 +25,11 @@
         <div class="container-fluid px-4">
             <div class="card shadow mb-4">
                 <div class="card shadow mb-4">
-                    <!-- <div class="card-header mb-2">
+                    <div class="card-header mb-2">
                         <div class="">
                         <a href="{{route('admin.shift_daily.create')}}" class="btn btn-success">Tambah Shift Daily</a>
                         </div>
-                    </div> -->
+                    </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

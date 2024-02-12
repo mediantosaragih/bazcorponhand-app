@@ -68,4 +68,9 @@ class Employe extends Model
     {
         return $this->belongsToMany(Shift::class, 'absensis');
     }
+
+    public function divisi()
+    {
+        return $this->hasOne(Divisi::class, 'divisi');
+    }
 }

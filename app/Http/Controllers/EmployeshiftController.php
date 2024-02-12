@@ -40,7 +40,10 @@ class EmployeshiftController extends Controller
         $request->validate([
             'karyawan_id' => 'required',
             'shift_id' => 'required',
-            'tanggal' => 'required',
+            'date_from' => 'required',
+            'date_to' => 'required',
+            'grace_for_late' => 'required',
+            'productive_work_time' => 'required',
 
         ]);
     
