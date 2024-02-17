@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\DivisiImport;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use Excel;
 
 use App\Models\Divisi;
 
@@ -49,10 +51,33 @@ class DivisiController extends Controller
         return redirect()->route('admin.divisi');
     }
 
-    public function edit($id){
-        $detail_divisi = Divisi::where('id', $id)->get();
+    public function update(Request $request)
+    {
+        $data_divisi = $request->only([
+            'id',
+            'divisi_id',
+            'name_divisi',
+            'jumlah',
+        ]);
+
+        DB::table('general_divisi')->where('divisi_id', $data_divisi['divisi_id'])->update($data_divisi);
+
+        return redirect()->route('admin.divisi');
+    }
+
+    public function edit($divisi_id){
+        $detail_divisi = Divisi::where('divisi_id', $divisi_id)->get();
         
-        return view('main/divisi/detail')->with('detail_divisi', $detail_divisi);
+        return view('divisi/edit')->with('detail_divisi', $detail_divisi);
+    }
+
+    public function destroy(Request $request)
+    {
+        $destroy_divisi = $request -> divisi_id;
+
+        DB::table('general_divisi')->where('divisi_id', $destroy_divisi)->delete();
+        
+        return redirect()->route('admin.divisi');
     }
 
     // public function DetailDataKaryawan($general_karyawan_id){
@@ -60,4 +85,18 @@ class DivisiController extends Controller
         
     //     return view('main/employee/detail_data')->with('detail_karyawan', $detail_karyawan);
     // }
+    // public function import(Request $request){
+
+    //     return view('import');
+    // }
+    public function import_proses(Request $request){
+        // dd($request->all());
+        try {
+            
+            Excel::import(new DivisiImport(), $request->file('file'));
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
+    }
 }

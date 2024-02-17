@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employe extends Model
 {
-    protected $table = "general";
+    protected $table = "employes";
+    protected $guarded = ['id'];
     protected $fillable = [
         'general_id',
         'general_karyawan_id',
@@ -62,4 +63,14 @@ class Employe extends Model
         'general_catatan',
     ];
     use HasFactory;
+
+    public function shift()
+    {
+        return $this->belongsToMany(Shift::class, 'absensis');
+    }
+
+    public function divisi()
+    {
+        return $this->hasOne(Divisi::class, 'divisi');
+    }
 }

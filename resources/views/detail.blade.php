@@ -10,7 +10,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                             <li class="breadcrumb-item active">Detail User</li>
                         </ol>
                     </div><!-- /.col -->
@@ -29,18 +29,7 @@
                                 <h3 class="card-title">Detail User</h3>
                             </div>
                             <div class="card-body">
-                                @if ($data->image)
-                                    <img src="{{ asset('storage/photo-user/' . $data->image) }}" width="100"
-                                        height="100px" alt="">
-                                @endif
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Email</label>
-                                    <p>{{ $data->email }}</p>
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Nama</label>
-                                    <p>{{ $data->name }}</p>
-                                </div>
+                                
                             </div>
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
@@ -53,14 +42,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($data->rumahs as $item)
-                                            <tr>
-                                                <td>{{ $loop->iteration }}</td>
-                                                <td>{{ $item->type_rumah }}</td>
-                                                <td>{{ $item->harga_rumah }}</td>
-                                                <td>{{ $item->lokasi_rumah }}</td>
-                                            </tr>
-                                        @endforeach
+                                        
                                     </tbody>
                                 </table>
                             </div>

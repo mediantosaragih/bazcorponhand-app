@@ -5,22 +5,21 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 @endsection
 @section('content')
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+<!-- <div class="content-wrapper">
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1 class="m-0">Dashboard</h1>
-                </div><!-- /.col -->
+                </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('admin.dashboard') }}">Home</a></li>
                         <li class="breadcrumb-item active">Dashboard v1</li>
                     </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+                </div>
+            </div>
+        </div>
     </div>
     <div class="container mt-5">
       <section class="content">
@@ -33,7 +32,6 @@
                         <h4 class="card-title">Draggable Events</h4>
                       </div>
                       <div class="card-body">
-                        <!-- the events -->
                         <div id="external-events">
                           <div class="external-event bg-success">Lunch</div>
                           <div class="external-event bg-warning">Go home</div>
@@ -48,9 +46,7 @@
                           </div>
                         </div>
                       </div>
-                      <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
                     <div class="card">
                       <div class="card-header">
                         <h3 class="card-title">Create Event</h3>
@@ -65,39 +61,26 @@
                             <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
                           </ul>
                         </div>
-                        <!-- /btn-group -->
                         <div class="input-group">
                           <input id="new-event" type="text" class="form-control" placeholder="Event Title">
-
                           <div class="input-group-append">
                             <button id="add-new-event" type="button" class="btn btn-primary">Add</button>
                           </div>
-                          <!-- /btn-group -->
                         </div>
-                        <!-- /input-group -->
                       </div>
                     </div>
                   </div>
                 </div>
-                <!-- /.col -->
                 <div class="col-md-9">
                   <div class="card card-primary">
                     <div class="card-body p-0">
-                      <!-- THE CALENDAR -->
                       <div id="calendar"></div>
                     </div>
-                    <!-- /.card-body -->
                   </div>
-                  <!-- /.card -->
                 </div>
-                <!-- /.col -->
               </div>
-              <!-- /.row -->
-            </div><!-- /.container-fluid -->
+            </div>
           </section>
-
       </div>
-      </div>
-
-
+    </div> -->
 @stop

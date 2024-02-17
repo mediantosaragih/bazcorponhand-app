@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Log in (v2)</title>
+  <title>HRIS</title>
 
+  <link rel="icon" href="{{ asset('logo_bazcorp.png')}}" type="image/x-icon">
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -19,10 +20,11 @@
   <!-- /.login-logo -->
   <div class="card card-outline card-primary">
     <div class="card-header text-center">
-      <a href="{{ route('login') }}" class="h1"><b>Admin</b>LTE</a>
+      <a href="{{ route('login') }}" class="brand-link">
+        <img src="{{ asset('logo_bazcorp.png')}}" style="width: 150px;height: 125px">
+      </a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Sign in to start your session</p>
 
       <form action="{{ route('login-proses') }}" method="post">
         @csrf

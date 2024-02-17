@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
+use App\Imports\EmployeImport;
 
 use App\Http\Imports\DataKaryawanImport;
 
@@ -24,7 +25,9 @@ class EmployeController extends Controller
 
     public function create()
     {
-        return view('employe.create');
+        $divisi = DB::table('general_divisi')->orderBy('name_divisi', 'asc')->get();
+
+        return view('employe.create')->with('divisi', $divisi);
     }
 
     public function store(Request $request)
@@ -83,15 +86,15 @@ class EmployeController extends Controller
             'general_catatan',
         ]);
 
-        Employee::create($data_karyawan);
+        Employe::create($data_karyawan);
 
-        return redirect()->route('index');
+        return redirect()->route('admin.employe');
     }
 
-    public function DetailDataKaryawan($general_karyawan_id){
-        $detail_karyawan = Employee::where('general_karyawan_id', $general_karyawan_id)->get();
+    public function edit($general_karyawan_id){
+        $detail_karyawan = Employe::where('general_karyawan_id', $general_karyawan_id)->get();
         
-        return view('main/employee/detail_data')->with('detail_karyawan', $detail_karyawan);
+        return view('employe/edit')->with('detail_karyawan', $detail_karyawan);
     }
 
     public function DataKaryawanImportExcel(Request $request) 
@@ -101,7 +104,7 @@ class EmployeController extends Controller
 		return redirect('employee');
 	}
 
-    public function PostEditDataKaryawan(Request $request){
+    public function update(Request $request){
         $data_karyawan = $request->only([
             'general_karyawan_id',
             'general_nomor_kartu_akses',
@@ -157,16 +160,27 @@ class EmployeController extends Controller
 
         DB::table('general')->where('general_karyawan_id', $data_karyawan['general_karyawan_id'])->update($data_karyawan);
 
-        return redirect('employee');
+        return redirect()->route('admin.employe');
     }
 
-    public function HapusDataKaryawan(Request $request)
+    public function destroy(Request $request)
     {
         $general_karyawan_id = $request -> general_karyawan_id;
 
         DB::table('general')->where('general_karyawan_id', $general_karyawan_id)->delete();
         
-        return redirect('employee');
+        return redirect()->route('admin.employe');
+    }
+    
+    public function import_proses(Request $request){
+        // dd($request->all());
+        try {
+            
+            Excel::import(new EmployeImport(), $request->file('file'));
+            return redirect()->back();
+        } catch (\Exception $e) {
+            return $e->getMessage();
+        }
     }
     
 }

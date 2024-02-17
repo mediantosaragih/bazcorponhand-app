@@ -10,4 +10,9 @@ class Divisi extends Model
     protected $table = "general_divisi";
     protected $guarded = ['id'];
     use HasFactory;
+   
+    public function general()
+    {
+        return $this->hasMany(General::class, 'divisi_id');
+    }
 }
