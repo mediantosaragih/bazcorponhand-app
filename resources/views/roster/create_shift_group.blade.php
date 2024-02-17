@@ -50,6 +50,14 @@
                                 <label class="col-form-label form-label">Total Days</label>
                                 <input id="overtime_based_on" name="overtime_based_on" type="text" class="form-control" required>
                             </div>
+                            <div class="col-md-5">
+                                <label class="col-form-label form-label">Dari Tanggal</label>
+                                <input  name="dateFrom" id="date_from"  type="date" class="form-control" required>
+                            </div>
+                            <div class="col-md-5">
+                                <label class="col-form-label form-label">Sampai Tanggal</label>
+                                <input  name="dateTo" id="date_to" type="date" class="form-control" required>
+                            </div>
                             <div class="col-md-3 mt-3">
                                 <label></label>
                                 <div class="" style="d-flex justify-content-center align-items-center text-align:center">
@@ -60,7 +68,7 @@
                                 <table id="resultTable" class="table">
                                     <!-- Table content will be generated here -->
                                 </table>
-                            </div> 
+                            </div>
                             <div class="col-md-12 mt-4">
                                 <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
@@ -75,10 +83,30 @@
 @push('scripts')
 <script>
 
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
 function generateTable() {
         var totalDays = document.getElementById('overtime_based_on').value;
         var table = document.getElementById('resultTable');
 
+        var startDate = new Date(document.getElementById('date_from').value);
+        var endDate = new Date(document.getElementById('date_to').value);
+
+        const date = new Date(startDate.getTime(startDate));
+
+        const dates = [];
+
+        while (date <= endDate) {
+            dates.push(new Date(date));
+            date.setDate(date.getDate() + 1);
+        };
+
+        console.log('awdaw', dates);
         // Clear previous table content
         table.innerHTML = '';
 
@@ -90,9 +118,11 @@ function generateTable() {
         headerCell2.innerHTML = '<strong>Shift Code</strong>';
         var headerCell3 = headerRow.insertCell(2);
         headerCell3.innerHTML = '<strong>Shift Description</strong>';
+        var headerCell4 = headerRow.insertCell(3);
+        headerCell4.innerHTML = '<strong>Tanggal</strong>';
 
         // Create table rows
-        for (var i = 1; i <= totalDays; i++) {
+        for (var i = 1; i <= dates.length; i++) {
             var row = table.insertRow(i);
 
             // Cell 1 - Day Number
@@ -142,6 +172,10 @@ function generateTable() {
             // Cell 3 - Shift Description (placeholder)
             var cell3 = row.insertCell(2);
             cell3.innerHTML = 'Start-End: 08:00 - 17:00';
+
+            // Cell 4 - Shift Date (placeholder)
+            var cell4 = row.insertCell(3);
+            cell4.innerHTML = formatDate(dates[i-1]);
         }
     }
 
