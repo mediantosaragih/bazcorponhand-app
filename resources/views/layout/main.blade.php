@@ -267,7 +267,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="" class="nav-link">
+                                <a href="{{ route('admin.overtime') }}" class="nav-link">
                                 <i class="far fa-edit nav-icon"></i>
                                 <p>Data Lembur</p>
                                 </a>
