@@ -24,7 +24,7 @@
                 <h4 class="card-title">Shift Group</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.shift_group.store') }}" method="post">
+                <form  method="post" action="{{ route('admin.shift_group.store') }}">
                 @csrf
                     <div class="container-fluid px-4">
                         <div class="row">
@@ -48,15 +48,15 @@
                             </div>
                             <div class="col-md-4">
                                 <label class="col-form-label form-label">Total Days</label>
-                                <input id="overtime_based_on" name="overtime_based_on" type="text" class="form-control" required>
+                                <input id="overtime_based_on" name="overtime_based_on" type="text" class="form-control" value="0" disabled>
                             </div>
                             <div class="col-md-5">
                                 <label class="col-form-label form-label">Dari Tanggal</label>
-                                <input  name="dateFrom" id="date_from"  type="date" class="form-control" required>
+                                <input  name="start_date" id="date_from"  type="date" class="form-control" required>
                             </div>
                             <div class="col-md-5">
                                 <label class="col-form-label form-label">Sampai Tanggal</label>
-                                <input  name="dateTo" id="date_to" type="date" class="form-control" required>
+                                <input  name="end_date" id="date_to" type="date" class="form-control" required>
                             </div>
                             <div class="col-md-3 mt-3">
                                 <label></label>
@@ -69,8 +69,9 @@
                                     <!-- Table content will be generated here -->
                                 </table>
                             </div>
-                            <div class="col-md-12 mt-4">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                            <input type="text" id="data_shift" name="shift_data" value="" hidden>
+                            <div class="col-md-12 mt-4 text-right">
+                                <button onclick="submitDataShift()" type="submit" class="btn btn-primary" >Submit</button>
                             </div>
                         </div>
                     </div>
@@ -91,7 +92,7 @@ function formatDate(date) {
 }
 
 function generateTable() {
-        var totalDays = document.getElementById('overtime_based_on').value;
+        var totalDays = document.getElementById('overtime_based_on');
         var table = document.getElementById('resultTable');
 
         var startDate = new Date(document.getElementById('date_from').value);
@@ -105,8 +106,8 @@ function generateTable() {
             dates.push(new Date(date));
             date.setDate(date.getDate() + 1);
         };
+        totalDays.setAttribute('value', dates.length);
 
-        console.log('awdaw', dates);
         // Clear previous table content
         table.innerHTML = '';
 
@@ -115,11 +116,11 @@ function generateTable() {
         var headerCell1 = headerRow.insertCell(0);
         headerCell1.innerHTML = '<strong>Day</strong>';
         var headerCell2 = headerRow.insertCell(1);
-        headerCell2.innerHTML = '<strong>Shift Code</strong>';
+        headerCell2.innerHTML = '<strong>Tanggal</strong>';
         var headerCell3 = headerRow.insertCell(2);
-        headerCell3.innerHTML = '<strong>Shift Description</strong>';
+        headerCell3.innerHTML = '<strong>Shift Code</strong>';
         var headerCell4 = headerRow.insertCell(3);
-        headerCell4.innerHTML = '<strong>Tanggal</strong>';
+        headerCell4.innerHTML = '<strong>Shift Description</strong>';
 
         // Create table rows
         for (var i = 1; i <= dates.length; i++) {
@@ -129,9 +130,25 @@ function generateTable() {
             var cell1 = row.insertCell(0);
             cell1.innerHTML = i;
 
-            // Cell 2 - Shift Code (dropdown)
+            // Cell 2 - Shift Date (placeholder)
             var cell2 = row.insertCell(1);
+            var inputDate = document.createElement('input');
+            inputDate.setAttribute('id', `shift_day_${i}_date`);
+            inputDate.setAttribute('class', 'form-control');
+            inputDate.setAttribute('type', 'date');
+            inputDate.setAttribute('disabled', 'true');
+            inputDate.setAttribute('value', formatDate(dates[i-1]));
+
+            cell2.appendChild(inputDate);
+            // cell2.innerHTML = formatDate(dates[i-1]);
+
+            // Cell 3 - Shift Code (dropdown)
+            var cell3 = row.insertCell(2);
             var dropdown = document.createElement("select");
+            dropdown.setAttribute('id', `shift_day_${i}_code`);
+            dropdown.setAttribute('class', 'form-control');
+            dropdown.setAttribute('type', 'select');
+            dropdown.setAttribute('required', 'true');
 
             // Buat beberapa opsi dropdown (ganti ini sesuai kebutuhan)
             var option1 = document.createElement("option");
@@ -167,15 +184,15 @@ function generateTable() {
             });
 
             // Tambahkan dropdown ke dalam sel
-            cell2.appendChild(dropdown);
+            cell3.appendChild(dropdown);
 
             // Cell 3 - Shift Description (placeholder)
-            var cell3 = row.insertCell(2);
-            cell3.innerHTML = 'Start-End: 08:00 - 17:00';
-
-            // Cell 4 - Shift Date (placeholder)
             var cell4 = row.insertCell(3);
-            cell4.innerHTML = formatDate(dates[i-1]);
+            inputShiftDescription = document.createElement('textarea');
+            inputShiftDescription.setAttribute('id', `shift_day_${i}_description`);
+            inputShiftDescription.setAttribute('class', 'form-control');
+            inputShiftDescription.setAttribute('type', 'select');
+            cell4.appendChild(inputShiftDescription);
         }
     }
 
@@ -185,6 +202,28 @@ function generateTable() {
                 alert('Generate the table before submitting the form.');
             }
         });
+
+function submitDataShift(){
+    var totalDays = document.getElementById('overtime_based_on').value;
+    var inputDataShift = document.getElementById('data_shift');
+
+    let dataShift = [];
+    for (var i = 1; i <= totalDays; i++) {
+        let shift = {
+            day: i,
+            date: document.getElementById(`shift_day_${i}_date`).value,
+            shift: document.getElementById(`shift_day_${i}_code`).value,
+            description: document.getElementById(`shift_day_${i}_description`).value
+        }
+
+        console.log(shift);
+
+        dataShift.push(shift);
+    }
+
+    inputDataShift.setAttribute('value', JSON.stringify(dataShift));
+}
+
 </script>
 @endpush
 @stop

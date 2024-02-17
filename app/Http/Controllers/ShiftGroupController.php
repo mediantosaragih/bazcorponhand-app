@@ -37,38 +37,52 @@ class ShiftGroupController extends Controller
     public function store(Request $request)
 {
     // Validate the request data as needed
-    $request->validate([
-        'group_code' => 'required',
-        'group_name' => 'required',
-        'overtime_based_on' => 'required|numeric',
-        'shift_data' => 'required|array',
-    ]);
 
     // Extract data from the request
     $groupCode = $request->input('group_code');
     $groupName = $request->input('group_name');
-    $overtimeBasedOn = $request->input('overtime_based_on');
-    $shiftData = $request->input('shift_data');
+    $shiftData = json_decode($request->input('shift_data'));
 
     // Create the Shift Group record
-    $shiftGroup = ShiftGroup::create([
+    ShiftGroup::create([
         'group_code' => $groupCode,
         'group_name' => $groupName,
-        'overtime_based_on' => $overtimeBasedOn,
+        'overtime_based_on' => 1,
     ]);
 
+    $shifts = [
+        "SHIFT_PAGI" => [
+            "nama_shift" => "PAGI",
+            "start_time" => "08:00",
+            "end_time" => "14:00"
+        ],
+        "SHIFT_SIANG" => [
+            "nama_shift" => "SIANG",
+            "start_time" => "14:00",
+            "end_time" => "22:00"
+        ],
+        "SHIFT_MALAM" => [
+            "nama_shift" => "MALAM",
+            "start_time" => "22:00",
+            "end_time" => "08:00"
+        ]
+    ];
+
     // Create Shift entries for each day
-    foreach ($shiftData as $day => $shift) {
+    foreach ($shiftData as $shift) {
         Shift::create([
-            'shift_group_id' => $shiftGroup->id,
-            'day' => $day,
-            'shift_code' => $shift['shift_code'],
-            // You can add more fields as needed
+            'shift_code' => $shift->shift,
+            'nama_shift' => $shifts[$shift->shift]["nama_shift"],
+            'date' => $shift->date,
+            'start_time' => $shifts[$shift->shift]["start_time"],
+            'end_time' =>  $shifts[$shift->shift]["end_time"],
+            'data_type' => 'bulk',
+            'flexible_time' => 1
         ]);
     }
 
     // Redirect or respond as needed
-    return redirect()->route('admin.shift_group.index')->with('success', 'Shift Group added successfully');
+    return redirect()->route('admin.shift_group')->with('success', 'Shift Group added successfully');
 }
 
     private function prepareShiftData($shiftCodes, $shiftDescriptions)
