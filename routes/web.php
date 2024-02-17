@@ -51,7 +51,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::put('/profilee/{id}/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profilee/{id}/delete', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    //untuk employe    
+    //untuk employe
     Route::get('/employe', [EmployeController::class, 'index'])->name('employe');
     // Route::get('/assets', [HomeController::class, 'assets'])->name('assets');
     Route::get('/employe/create', [EmployeController::class, 'create'])->name('employe.create');
@@ -64,7 +64,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/employee/{general_karyawan_id}/delete', [EmployeController::class, 'destroy'])->name('employe.destroy');
     Route::post('/employee/import-proses', [EmployeController::class, 'import_proses'])->name('employe.import-proses');
 
-     //untuk divisi    
+     //untuk divisi
      Route::get('/divisi', [DivisiController::class, 'index'])->name('divisi');
      Route::get('/divisi/create', [DivisiController::class, 'create'])->name('divisi.create');
     Route::post('divisi/store', [DivisiController::class, 'store'])->name('divisi.store');
@@ -73,7 +73,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
      Route::get('/divisie/{divisi_id}/delete', [DivisiController::class, 'destroy'])->name('divisi.destroy');
      Route::post('/divisi/import-proses', [DivisiController::class, 'import_proses'])->name('divisi.import-proses');
 
-    //untuk gaji    
+    //untuk gaji
     Route::get('/gaji', [GajiController::class, 'index'])->name('gaji');
     Route::get('/gaji/create', [GajiController::class, 'create'])->name('gaji.create');
     Route::post('gaji/store', [GajiController::class, 'store'])->name('gaji.store');
@@ -87,7 +87,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/create', [HomeController::class, 'create'])->name('user.create');
     Route::post('/store', [HomeController::class, 'store'])->name('user.store');
 
-    //untuk roster    
+    //untuk roster
     Route::get('/roster', [RosterController::class, 'index'])->name('roster');
     Route::get('/roster/create', [RosterController::class, 'create'])->name('roster.create');
     Route::post('roster/store', [RosterController::class, 'store'])->name('roster.store');
@@ -146,7 +146,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::put('/lembur/{id}/update', [LemburController::class, 'update'])->name('lembur.update');
     Route::delete('/lembur/{id}/delete', [LemburController::class, 'delete'])->name('lembur.delete');
 
-    //untuk cuti    
+    //untuk cuti
     Route::get('/cuti', [CutiController::class, 'index'])->name('cuti');
     Route::get('/cuti', function () {
         return view('cuti/cuti');
@@ -203,4 +203,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
         Route::get('/import', [BelajarController::class, 'import'])->name('import');
         Route::post('/import-proses', [BelajarController::class, 'import_proses'])->name('import-proses');
     });
-});
+
+    Route::group(['prefix' => 'setting'], function () {
+        Route::get('/time-and-attendance', function () { return view('setting.time_and_attendance'); })->name('setting.time-and-attendance');
+    });
+    Route::group(['prefix' => 'time-and-attendance'], function () {
+        Route::get('/leave-setting',[CutiController::class, 'leaveSetting'])->name('setting.time-and-attendance.leave-setting');
+        Route::post('/add-leave-setting',[CutiController::class, 'addLeaveSetting'])->name('setting.time-and-attendance.add-leave-setting');
+    });
+
+}); 

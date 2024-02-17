@@ -35,6 +35,7 @@
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
     <link href="{{asset('admin_assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     @stack('scripts')
 
     @yield('css')
@@ -310,6 +311,7 @@
                                 <p>Bonus</p>
                                 </a>
                             </li>
+
                             </ul>
                         </li>
                         <li class="nav-item">
@@ -319,7 +321,7 @@
                                 KPI
                             </p>
                             </a>
-                            
+
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
