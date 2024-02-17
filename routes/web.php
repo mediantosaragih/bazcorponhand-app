@@ -139,7 +139,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::put('/shift/{id}/update', [ShiftController::class, 'update'])->name('shift.update');
     Route::delete('/shift/{id}/delete', [ShiftController::class, 'destroy'])->name('shift.destroy');
 
-    //untuk lembur
+    //untuk lembur    
     Route::get('/lembur', [LemburController::class, 'index'])->name('lembur');
     Route::get('/lembur/create', [LemburController::class, 'create'])->name('lembur.create');
     Route::post('lembur/store', [LemburController::class, 'store'])->name('lembur.store');
@@ -208,9 +208,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/overtime', [OvertimeController::class, 'index'])->name('overtime');
     Route::get('/overtime/create', [OvertimeController::class, 'create'])->name('overtime.create');
     Route::post('overtime/store', [OvertimeController::class, 'store'])->name('overtime.store');
-    Route::get('/overtime/{overtime_id_karyawan}/edit', [OvertimeController::class, 'edit'])->name('overtime.edit');
-    Route::put('/overtime/{overtime_id_karyawan}/update', [OvertimeController::class, 'update'])->name('overtime.update');
-    Route::get('/overtime/{overtime_id_karyawan}/delete', [OvertimeController::class, 'delete'])->name('overtime.delete');
+    Route::get('/overtime/{id}/edit', [OvertimeController::class, 'edit'])->name('overtime.edit');
+    Route::put('/overtime/{id}/update', [OvertimeController::class, 'update'])->name('overtime.update');
+    Route::get('/overtime/{id}/delete', [OvertimeController::class, 'delete'])->name('overtime.delete');
 
     //endovertime
 
@@ -229,4 +229,4 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
         Route::post('/add-leave-setting',[CutiController::class, 'addLeaveSetting'])->name('setting.time-and-attendance.add-leave-setting');
     });
 
-});
+}); 

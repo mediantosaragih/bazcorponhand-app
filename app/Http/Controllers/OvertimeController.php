@@ -37,14 +37,14 @@ class OvertimeController extends Controller
         return redirect()->route('admin.overtime');
     }
 
-    public function edit($overtime_id_karyawan){
-        $data_overtime = Overtime::where('overtime_id_karyawan', $overtime_id_karyawan)->get();
+    public function edit($id){
         $employes = DB::table('employes')->orderBy('general_firstname', 'asc')->get();
-
-        return view('overtime.edit')->with('data_overtime', $data_overtime)->with('employes', $employes);
+        $data_overtime = Overtime::where('id', $id)->get();
+        
+        return view('overtime.edit', ['employes' => $employes, 'data_overtime' => $data_overtime]);
     }
 
-    public function update(Request $request){
+    public function update(Request $request, $id){
         $data_overtime = $request->only([
             'id',
             'overtime_id_karyawan',
@@ -53,16 +53,16 @@ class OvertimeController extends Controller
             'overtime_berakhir'
         ]);
 
-        DB::table('general_overtime')->where('overtime_id_karyawan', $data_overtime['overtime_id_karyawan'])->update($data_overtime);
+        Overtime::where('id', $id)->update($data_overtime);
 
         return redirect()->route('admin.overtime');
     }
 
     public function delete(Request $request)
     {
-        $overtime_id_karyawan = $request -> overtime_id_karyawan;
-
-        DB::table('general_overtime')->where('overtime_id_karyawan', $overtime_id_karyawan)->delete();
+        $id = $request -> id;
+        
+        DB::table('general_overtime')->where('id', $id)->delete();
         
         return redirect()->route('admin.overtime');
     }

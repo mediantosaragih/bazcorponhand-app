@@ -22,7 +22,7 @@
             <div class="container-fluid">
                 
             @foreach($data_overtime as $data_overtime)
-                <form action="{{ route('admin.overtime.update', ['overtime_id_karyawan' => $data_overtime->overtime_id_karyawan]) }}" method="POST"
+                <form action="{{ route('admin.overtime.update', ['id' => $data_overtime->id]) }}" method="POST"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')

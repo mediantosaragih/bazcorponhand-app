@@ -230,7 +230,6 @@
                             </p>
                             </a>
                             <ul class="nav nav-treeview">
-
                             <li class="nav-item">
                                 <a href="{{ route('admin.kehadiran_hari_ini') }}" class="nav-link">
                                 <i class="far fa-edit nav-icon"></i>
@@ -338,24 +337,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-wrench"></i>
-                            <p>
-                                Setting
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{route('admin.setting.time-and-attendance')}}" class="nav-link">
-                                <i class="far fa-clock nav-icon"></i>
-                                <p>Time & Attendance</p>
-                                </a>
-                            </li>
-                            </ul>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
                             <a href="{{route('logout')}}" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>

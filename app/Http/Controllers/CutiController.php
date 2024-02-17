@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Leave;
 use Illuminate\Http\Request;
+use App\Models\Leave;
 use Illuminate\Support\Str;
 
 class CutiController extends Controller

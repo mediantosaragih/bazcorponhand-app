@@ -61,12 +61,12 @@
                                         <span class="js-lists-values-nama">{{$overtime->overtime_berakhir}}</span>
                                     </td>
                                     <td style="width: 10px;" align="center" >
-                                        <a href="{{ route('admin.overtime.edit', ['overtime_id_karyawan' => $overtime->overtime_id_karyawan]) }}">
+                                        <a href="{{ route('admin.overtime.edit', ['id' => $overtime->id]) }}">
                                         <span class="icon">
                                             <i class="fas fa-pencil-alt"></i> <!-- Icon pensil (pencil) -->
                                         </span>
                                         </a>
-                                        <a href="{{ route('admin.overtime.delete', ['overtime_id_karyawan' => $overtime->overtime_id_karyawan]) }}">
+                                        <a href="{{ route('admin.overtime.delete', ['id' => $overtime->id]) }}">
                                             <span class="icon">
                                                 <i class="fas fa-trash-alt"></i> <!-- Icon tong sampah (trash) -->
                                             </span>
