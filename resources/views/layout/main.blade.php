@@ -216,7 +216,7 @@
                             <li class="nav-item">
                                 <a href="{{route('admin.shift_group')}}" class="nav-link">
                                 <i class="far fa-edit nav-icon"></i>
-                                <p>Sift Group</p>
+                                <p>Shift Group</p>
                                 </a>
                             </li>
                             </ul>
@@ -259,12 +259,12 @@
                             </p>
                             </a>
                             <ul class="nav nav-treeview">
-                            <li class="nav-item">
+                            <!-- <li class="nav-item">
                                 <a href="" class="nav-link">
                                 <i class="far fa-edit nav-icon"></i>
                                 <p>Jumlah Harga Lembur</p>
                                 </a>
-                            </li>
+                            </li> -->
                             <li class="nav-item">
                                 <a href="{{ route('admin.overtime') }}" class="nav-link">
                                 <i class="far fa-edit nav-icon"></i>
