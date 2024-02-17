@@ -17,6 +17,7 @@ use App\Http\Controllers\ShiftDailyController;
 use App\Http\Controllers\ShiftGroupController;
 use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\EmployeshiftController;
+use App\Http\Controllers\OvertimeController;
 
 
 /*
@@ -196,6 +197,21 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('user.detail');
     Route::put('/update/{id}', [HomeController::class, 'update'])->name('user.update');
     Route::delete('/delete/{id}', [HomeController::class, 'delete'])->name('user.delete');
+
+    //overtime
+
+    // Route::get('/overtime', function () {
+    //     return view('overtime/overtime');
+    // })->name('overtime');
+
+    Route::get('/overtime', [OvertimeController::class, 'index'])->name('overtime');
+    Route::get('/overtime/create', [OvertimeController::class, 'create'])->name('overtime.create');
+    Route::post('overtime/store', [OvertimeController::class, 'store'])->name('overtime.store');
+    Route::get('/overtime/{overtime_id_karyawan}/edit', [OvertimeController::class, 'edit'])->name('overtime.edit');
+    Route::put('/overtime/{overtime_id_karyawan}/update', [OvertimeController::class, 'update'])->name('overtime.update');
+    Route::get('/overtime/{overtime_id_karyawan}/delete', [OvertimeController::class, 'delete'])->name('overtime.delete');
+
+    //endovertime
 
 
     Route::group(['prefix' => 'belajar'], function () {
