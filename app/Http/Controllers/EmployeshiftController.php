@@ -46,14 +46,18 @@ class EmployeshiftController extends Controller
             'productive_work_time' => 'required',
 
         ]);
-    
+
         // Proses penyimpanan data
         $absensis = new EmployeShift;
         $absensis->karyawan_id = $request->input('karyawan_id');
         $absensis->shift_id = $request->input('shift_id');
         $absensis->tanggal = $request->input('tanggal');
+        $absensis->lokasi_absensi = $request->input('lokasi_absensi');
+        $absensis->lokasi_code = $request->input('lokasi_code');
+        $absensis->lokasi_nama = $request->input('lokasi_nama');
+        $absensis->lokasi_kordinat = $request->input('lokasi_kordinat');
         $absensis->save();
-    
+
         $employes = Employe::all();
         $shifts = Shift::all();
 
@@ -69,7 +73,7 @@ class EmployeshiftController extends Controller
         // $absensis = EmployeShift::with(['employes', 'shifts'])->get();
         // $absensis = EmployeShift::find($karyawan_id);s
         // dd($absensis);
-        
+
         // dd($absensis);
         return view('shift_daily/detail_shift_daily', compact('absensis'));
     }

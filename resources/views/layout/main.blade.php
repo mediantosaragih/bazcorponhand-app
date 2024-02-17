@@ -36,6 +36,12 @@
     <link rel="stylesheet" href="{{ asset('lte/plugins/summernote/summernote-bs4.min.css') }}">
     <link href="{{asset('admin_assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <style>
+        th {
+            text-align: center; /* Mengatur teks menjadi rata tengah */
+        }
+    </style>
+
     @stack('scripts')
 
     @yield('css')

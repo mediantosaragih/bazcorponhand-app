@@ -34,7 +34,7 @@
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
-                                    <tr>                                  
+                                    <tr>
                                         <th>Shift Code</th>
                                         <th>Nama Shift</th>
                                         <th>Start Time</th>

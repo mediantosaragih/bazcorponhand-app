@@ -148,10 +148,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
 
     //untuk cuti
     Route::get('/cuti', [CutiController::class, 'index'])->name('cuti');
-    Route::get('/cuti', function () {
-        return view('cuti/cuti');
-    })->name('cuti');
+    // Route::get('/cuti', function () {
+    //     return view('cuti/cuti');
+    // })->name('cuti');
     Route::get('/cuti/create', [CutiController::class, 'create'])->name('cuti.create');
+    Route::get('/cuti_massal/create', [CutiController::class, 'create_massal'])->name('cuti_massal.create');
     Route::post('cuti/store', [CutiController::class, 'store'])->name('cuti.store');
     Route::get('/cuti/{id}/edit', [CutiController::class, 'edit'])->name('cuti.edit');
     Route::put('/cuti/{id}/update', [CutiController::class, 'update'])->name('cuti.update');

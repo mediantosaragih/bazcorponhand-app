@@ -93,7 +93,7 @@ class ShiftController extends Controller
 
     public function edit($id){
         $data_shifts = Shift::where('id', $id)->get();
-        
+
         return view('shift/edit')->with('data_shifts', $data_shifts);
     }
 
@@ -102,7 +102,7 @@ class ShiftController extends Controller
         $data_shifts = $request -> id;
 
         DB::table('shifts')->where('id', $data_shifts)->delete();
-        
+
         return redirect()->route('admin.shift');
     }
 }

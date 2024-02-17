@@ -74,31 +74,31 @@
                                     <input type="checkbox" class="form-check-input" name="1" id="exampleCheck1">
                                     <label class="form-check-label" for="exampleCheck1">Yes</label>
                                 </div>
-                            </div> 
+                            </div>
                             <div class="col-md-6">
                                 <label class="col-form-label form-label">Grace for Late</label>
                                 <div class="input-group">
                                     <input  name="" type="number" class="form-control" required>
-                                        <div class="input-group-append"> 
+                                        <div class="input-group-append">
                                             <span class="input-group-text">Minute(s)</span>
                                         </div>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <label class="col-form-label form-label">Productive Work Time</label>
-                                <div class="input-group"> 
+                                <div class="input-group">
                                     <input  name="" type="number" class="form-control" required>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Minute(s)</span>
                                     </div>
-                                </div>  
+                                </div>
                             </div>
                             <div class="col-md-6">
                                 <label></label>
                                 <div class="" style="d-flex justify-content-center align-items-center text-align:center">
                                     <button type="submit" class="btn btn-success">Simpan</button>
                                 </div>
-                            </div>   
+                            </div>
                         </div>
                     </div>
                 </form>
