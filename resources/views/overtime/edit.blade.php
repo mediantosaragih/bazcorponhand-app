@@ -45,7 +45,11 @@
                                             </div>
                                             <div class="col-md-8">
                                                 <label class="col-form-label form-label">ID karyawan</label>
-                                                <input  name="overtime_id_karyawan" value="{{$data_overtime->overtime_id_karyawan}}" type="text" class="form-control" required>
+                                                <select name="overtime_id_karyawan" class="form-control" required>
+                                                @foreach ($employes as $employe)
+                                                    <option value="{{ $employe->general_karyawan_id }}">{{ $employe->general_karyawan_id }} - {{ $employe->general_firstname }}</option>
+                                                @endforeach
+                                                </select>
                                             </div>
                                             <div class="col-md-8">
                                                 <label class="col-form-label form-label">Tanggal Lembur</label>

@@ -39,8 +39,9 @@ class OvertimeController extends Controller
 
     public function edit($overtime_id_karyawan){
         $data_overtime = Overtime::where('overtime_id_karyawan', $overtime_id_karyawan)->get();
-        
-        return view('overtime.edit')->with('data_overtime', $data_overtime);
+        $employes = DB::table('employes')->orderBy('general_firstname', 'asc')->get();
+
+        return view('overtime.edit')->with('data_overtime', $data_overtime)->with('employes', $employes);
     }
 
     public function update(Request $request){
