@@ -41,7 +41,8 @@
             text-align: center; /* Mengatur teks menjadi rata tengah */
         }
     </style>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.min.js"></script>
     @stack('scripts')
 
     @yield('css')
@@ -240,6 +241,14 @@
                                 <a href="{{ route('admin.kehadiran') }}" class="nav-link">
                                 <i class="far fa-edit nav-icon"></i>
                                 <p>Kehadiran</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{route('submit-attendance')}}" class="nav-link">
+                                <i class="nav-icon fas fa-clock "></i>
+                                <p>
+                                    Submit Attendance
+                                </p>
                                 </a>
                             </li>
                             <li class="nav-item">

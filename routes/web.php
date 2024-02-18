@@ -221,7 +221,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
         Route::post('/import-proses', [BelajarController::class, 'import_proses'])->name('import-proses');
     });
 
-    Route::group(['prefix' => 'setting'], function () {
+    Route::group(
+        ['prefix' => 'setting'], function () {
         Route::get('/time-and-attendance', function () { return view('setting.time_and_attendance'); })->name('setting.time-and-attendance');
     });
     Route::group(['prefix' => 'time-and-attendance'], function () {
@@ -229,4 +230,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
         Route::post('/add-leave-setting',[CutiController::class, 'addLeaveSetting'])->name('setting.time-and-attendance.add-leave-setting');
     });
 
-}); 
+});
+
+Route::get('/submit-attendance', [AttendanceController::class, 'submitAttendance'])->name('submit-attendance');
+Route::post('/submit-attendance-post', [AttendanceController::class, 'submitAttendancePost'])->name('submit-attendance-post');
+
