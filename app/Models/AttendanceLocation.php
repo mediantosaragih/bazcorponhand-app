@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AttendanceLocation extends Model
 {
     use HasFactory;
-    protected $table = "attendance_location";
+    protected $table = "attendance_locations";
     public $timestamps = false;
     public $incrementing = false;
 }
