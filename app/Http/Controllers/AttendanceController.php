@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Attendance;
+use App\Models\AttendanceLocation;
 use Illuminate\Http\Request;
 use App\Models\EmployeShift;
 use App\Models\Employe;
@@ -23,7 +25,7 @@ class AttendanceController extends Controller
         // $absensis = EmployeShift::with(['employes', 'shifts'])->get();
         // $absensis = EmployeShift::find($karyawan_id);s
         // dd($absensis);
-        
+
         // dd($absensis);
         return view('attendance.detail_kehadiran', compact('absensis'));
     }
@@ -82,7 +84,7 @@ class AttendanceController extends Controller
 
     public function edit($divisi_id){
         $detail_divisi = Divisi::where('divisi_id', $divisi_id)->get();
-        
+
         return view('divisi/edit')->with('detail_divisi', $detail_divisi);
     }
 
@@ -91,7 +93,28 @@ class AttendanceController extends Controller
         $destroy_divisi = $request -> divisi_id;
 
         DB::table('general_divisi')->where('divisi_id', $destroy_divisi)->delete();
-        
+
         return redirect()->route('admin.divisi');
+    }
+
+    public function submitAttendance(){
+
+        $attendanceLocations = AttendanceLocation::all();
+        return view('attendance/submit_attendance',['attendanceLocations' => $attendanceLocations]);
+    }
+
+    public function submitAttendancePost(Request $request){
+
+        $employeData = Employe::where('user_id', auth()->user()->id)->first();
+
+        $attendance = Attendance::create([
+            'tanggal' => now(),
+            'check_in' => now(),
+            'karyawan_id' => $employeData->id,
+            'shift_id' => 2,
+            'created_at' => now(),
+        ]);
+
+        return redirect()->route('admin.kehadiran_hari_ini');
     }
 }
